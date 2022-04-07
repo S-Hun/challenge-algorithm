@@ -7,6 +7,7 @@ public class bj15596_al_step5_1 {
 		int[] arr = {1,2,3,4};
 		Test test = new Test();
 		System.out.println(test.sum(arr));
+		//
 
 	}
 
