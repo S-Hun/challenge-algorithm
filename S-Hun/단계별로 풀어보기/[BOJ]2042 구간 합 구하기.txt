@@ -1,0 +1,79 @@
+#include<iostream>
+#include<vector>
+#include<cmath>
+
+using namespace std;
+typedef long long ll;
+int n, m, k;
+vector<ll> nums;
+vector<ll> segtree;
+int height;
+
+ll gen_segtree(int v, int s, int e) {
+	ll sum;
+	if (s == e) { 
+		sum = nums[s]; 
+		nums[s] = v;
+	}
+	else {
+		int mid = (s + e) / 2;
+		ll left = gen_segtree(v * 2 + 1, s, mid);
+		ll right = gen_segtree(v * 2 + 2, mid + 1, e);
+		sum = left + right;
+	}
+	segtree[v] = sum;
+	return sum;
+}
+
+void change_segtree(int i, ll& num) {
+	int v = nums[i];
+	ll temp = num - segtree[v];
+	segtree[v] = num;
+	while (v != 0) {
+		v = (v - 1) / 2;
+		segtree[v] += temp;
+	}
+}
+
+ll sum_segtree(int v, int s, int e, int& ts, int& te) {
+	if (ts <= s && e <= te) return segtree[v];
+	else if (e < ts || te < s) return 0;
+	else {
+		int mid = (s + e) / 2;
+		ll left = sum_segtree(v * 2 + 1, s, mid, ts, te);
+		ll right = sum_segtree(v * 2 + 2, mid + 1, e, ts, te);
+		return left + right;
+	}
+}
+
+void input() {
+	cin >> n >> m >> k;
+	height = ceil(log2(n));
+	nums.resize(n);
+	segtree.resize(1 << (height + 1));
+	for (int i = 0; i < n; i++) {
+		cin >> nums[i];
+	}
+	gen_segtree(0, 0, n - 1);
+}
+
+void solution() {
+	ll c0, c1, c2;
+	for (int i = 0; i < m + k; i++) {
+		cin >> c0 >> c1 >> c2;
+		if (c0 == 1) {
+			change_segtree(c1-1, c2);
+		}
+		else if (c0 == 2) {
+			int s = c1 - 1, e = c2 - 1;
+			cout << sum_segtree(0, 0, n - 1, s, e) << '\n';
+		}
+	}
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0); cout.tie(0);
+	input();
+	solution();
+}
