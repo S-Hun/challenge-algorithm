@@ -1,7 +1,7 @@
 <div align='center'>
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FS-Hun%2Fchallenge-algorithm&count_bg=%23C8433D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-[![Contributers](https://img.shields.io/badge/Contributers-1-blueviolet)](#)
+[![Contributers](https://img.shields.io/badge/Contributers-3-blueviolet)](#)
 
 </div>
 
@@ -33,6 +33,7 @@ commit 메세지: [문제_출처_플랫폼] 문제이름 / 난이도 / 걸린시
 
 터미널에서 작성법: `git commit -m "[BOJ] Hello World / 브론즈5 / 1분" -m "https://www.acmicpc.net/problem/2557"`
 
+반드시 주소를 포함할 것!
 - **문제 출처 플랫폼 목록<a href='https://github.com/ellynhan/challenge100-codingtest-study'><sub>FROM</sub></a>**
     * [BOJ] - 백준
     * [PGS] - 프로그래머스
