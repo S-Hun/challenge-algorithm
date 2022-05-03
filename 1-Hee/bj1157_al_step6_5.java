@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class bj1157_al_step6_5 {
 
 	public static void main(String[] args) {
+
+		// add 주석
 		
 		Scanner sc = new Scanner(System.in);
 		String input = sc.nextLine();
