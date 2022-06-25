@@ -1,0 +1,59 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+#include<algorithm>
+#include<cmath>
+
+using namespace std;
+int N;
+vector<int> sol;
+int ans[2];
+int min_sol = 2'147'483'647;
+
+void init() {
+	cin >> N;
+	sol.resize(N);
+	for (int i = 0; i < N; i++) cin >> sol[i];
+}
+
+void check(int i, int j) {
+	if (i >= j) return;
+	if (abs(sol[i] + sol[j]) < min_sol) {
+		ans[0] = sol[i];
+		ans[1] = sol[j];
+		min_sol = abs(sol[i] + sol[j]);
+	}
+}
+
+void solve() {
+	int pos;
+	for (int i = 0; i < N; i++) {
+		/*
+		cout << "front ";
+		if (i > 0) cout << sol[i - 1] << ' ';
+		if (i < N - 1) cout << sol[i + 1];
+
+		cout << "\nback ";
+		pos = upper_bound(sol.begin(), sol.end(), -1 * sol[i]) - sol.begin();
+		if (pos > 0) cout << sol[pos - 1] << ' ';
+		if(pos < N -1) cout << sol[pos];
+		cout << '\n';
+		*/
+		
+		if (i > 0) check(i, i - 1);
+		if (i < N - 1) check(i, i + 1);
+
+		pos = upper_bound(sol.begin(), sol.end(), -1 * sol[i]) - sol.begin();
+		if (pos > 0) check(i, pos - 1);
+		if (pos < N) check(i, pos);
+		
+	}
+	cout << ans[0] << ' ' << ans[1] << '\n';
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0); cout.tie(0);
+	init();
+	solve();
+}
