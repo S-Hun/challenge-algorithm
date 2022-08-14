@@ -58,4 +58,9 @@ comment에는 알고리즘 분류나 문제에 대한 평가등을 적어주시�
 1. 문제에 관계없이 **주 1회 이상** 반드시 PR을 작성할 것
     - 매주 토요일( 또는 일요일 )마다 PR 승인
 
+<br/>
+
+## **_Alumni_**
+[huyckgod](https://github.com/huyckgod) : ~ 22. 05. 21
+
 <br/><br/>
