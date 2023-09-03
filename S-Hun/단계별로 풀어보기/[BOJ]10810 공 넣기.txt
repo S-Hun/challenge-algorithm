@@ -1,0 +1,22 @@
+#include<iostream>
+
+using namespace std;
+
+int arr[101];
+int main(int argc, char* argv[]){
+	int N, M;
+	cin >> N >> M;
+	int i, j, k;
+	for(int a=0; a<M; a++)
+	{
+		cin >> i >> j >> k;
+		for(int b=i; b<=j; b++)
+		{
+			arr[b-1] = k;
+		}		
+	}
+	for(int a=0; a<N; a++)
+	{
+		cout << arr[a] << ' ';
+	} 
+}
