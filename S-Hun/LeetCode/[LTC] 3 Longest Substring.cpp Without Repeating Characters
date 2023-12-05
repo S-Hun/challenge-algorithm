@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        std::queue<char> q;
+        int cnt[127] = {0,};
+        int ans = 0;
+
+        int len = 0;
+        for(auto c : s)
+        {
+            int v = (int)c;
+            if(cnt[v] == 0)
+            {
+                q.push(v);
+                cnt[v]++;
+                ans = max(ans, ++len);
+            }
+            else
+            {
+                while(q.front() != c) {
+                    cnt[(int)q.front()]--;
+                    q.pop();
+                    --len;
+                }
+                q.pop();
+                q.push(v);
+            }
+        }
+
+        return ans;
+    }
+};
