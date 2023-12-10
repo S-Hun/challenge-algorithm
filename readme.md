@@ -44,7 +44,8 @@ commit 메세지: [문제_출처_플랫폼] 문제이름 / 난이도 / 걸린시
 
 <br/>
 
-## **_Pull Request_ 작성 규칙**
+
+## _(no necessary)_ **_Pull Request_ 작성 규칙**
 PR 제목 : `Github_ID / 주차 / 푼 문제수`
 
 (_ex. S-Hun / 4월 1주 / 2문제_)
